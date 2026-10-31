@@ -1,89 +1,97 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pembayaran QRIS demo Pasar Gaib.">
+    <meta name="description" content="Selesaikan pembayaran pesanan Pasar Gaib dengan QRIS demo.">
+    <meta name="theme-color" content="#0A0A0B">
     <title>Pembayaran QRIS | Pasar Gaib</title>
 
+    <link rel="icon" type="image/jpeg" href="asset/logo.jpeg">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/payment.css">
+    <link rel="stylesheet" href="assets/css/qris.css">
 </head>
-
 <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
     <header class="navbar">
-        <div class="navbar__container">
-            <a href="index.html" class="navbar__brand">
-                <img src="asset/logo.jpeg" alt="Logo Pasar Gaib"
-                     width="40" height="40">
-                <span>Pasar Gaib</span>
+        <nav class="container navbar__inner" aria-label="Navigasi utama">
+            <a href="index.html" class="navbar__logo" aria-label="Pasar Gaib — Beranda">
+                <img
+                    src="asset/logo.jpeg"
+                    alt="Logo Pasar Gaib"
+                    class="navbar__logo-img"
+                    width="40"
+                    height="40"
+                >
+                <span class="navbar__logo-text">
+                    <span class="navbar__logo-name">Pasar Gaib</span>
+                    <span class="navbar__logo-sub">Artefak Mistis Nusantara</span>
+                </span>
             </a>
 
-            <a href="index.html" class="navbar__link">
-                Kembali ke Beranda
-            </a>
-        </div>
+            <a href="index.html" class="navbar__link">Kembali ke Beranda</a>
+        </nav>
     </header>
 
-    <main class="payment-page">
+    <main id="main-content" class="payment-page">
         <div class="payment-heading">
             <span class="payment-label">PEMBAYARAN DIGITAL</span>
             <h1>Selesaikan Pembayaran</h1>
-            <p>Silakan selesaikan pembayaran sebelum batas waktu berakhir.</p>
+            <p>Pindai kode QRIS dan selesaikan pembayaran sebelum waktunya habis.</p>
         </div>
 
-        <section id="payment-loading" class="payment-panel">
+        <section id="payment-loading" class="payment-panel payment-state" aria-live="polite">
+            <span class="payment-spinner" aria-hidden="true"></span>
             <p>Memuat informasi pembayaran...</p>
         </section>
 
         <section id="payment-content" class="payment-layout" hidden>
             <div class="payment-panel payment-main">
                 <div class="payment-status">
-                    <span class="status-indicator"></span>
+                    <span class="status-indicator" aria-hidden="true"></span>
                     <span>Menunggu Pembayaran</span>
                 </div>
 
-                <h2>Scan QRIS di bawah ini</h2>
+                <h2>Bayar dengan QRIS</h2>
+                <p class="payment-description">
+                    Buka aplikasi pembayaran pilihanmu, lalu pindai kode QR di bawah ini.
+                </p>
 
                 <div class="qris-container">
-                    <div class="qris-placeholder">
+                    <div class="qris-frame">
                         <img
                             src="asset/qris.jpeg"
-                            alt="QRIS Demo Pasar Gaib"
+                            alt="Kode QRIS demo Pasar Gaib"
                             class="qris-image"
-                            >
-                        </div>
+                        >
                     </div>
-
-                    <strong>QRIS Pasar Gaib</strong>
-                    <p>QR ini hanya digunakan untuk simulasi tugas.</p>
+                    <div class="qris-caption">
+                        <strong>QRIS Demo Pasar Gaib</strong>
+                        <p>Pastikan nominal pembayaran sesuai dengan total pesanan.</p>
+                    </div>
                 </div>
 
                 <div class="payment-countdown">
                     <span>Sisa waktu pembayaran</span>
-                    <strong id="payment-countdown">15:00</strong>
+                    <strong id="payment-countdown" aria-live="off">15:00</strong>
                 </div>
 
-                <p id="payment-message" class="payment-message" hidden></p>
+                <p id="payment-message" class="payment-message" role="status" hidden></p>
 
-                <button
-                    type="button"
-                    id="payment-confirm"
-                    class="payment-button"
-                >
+                <button type="button" id="payment-confirm" class="payment-button">
                     Simulasikan Pembayaran Berhasil
                 </button>
 
                 <p class="payment-disclaimer">
-                    Ini merupakan simulasi pembayaran. Tidak ada transaksi
-                    atau pemindahan uang sungguhan.
+                    Ini merupakan simulasi pembayaran. Tidak ada transaksi atau pemindahan uang sungguhan.
                 </p>
             </div>
 
-            <aside class="payment-panel payment-summary">
-                <h2>Detail Pesanan</h2>
+            <aside class="payment-panel payment-summary" aria-labelledby="order-summary-title">
+                <span class="payment-eyebrow">RINGKASAN</span>
+                <h2 id="order-summary-title">Detail Pesanan</h2>
 
                 <div class="payment-detail">
                     <span>Nomor Pesanan</span>
@@ -95,8 +103,6 @@
                     <strong>QRIS Demo</strong>
                 </div>
 
-                <hr>
-
                 <div class="payment-total">
                     <span>Total Pembayaran</span>
                     <strong id="payment-total">Memuat...</strong>
@@ -105,6 +111,8 @@
         </section>
 
         <section id="payment-error" class="payment-panel payment-result" hidden>
+            <div class="result-icon result-icon--error" aria-hidden="true">!</div>
+            <span class="payment-eyebrow">PEMBAYARAN</span>
             <h2 id="payment-error-title">Pembayaran tidak tersedia</h2>
             <p id="payment-error-message"></p>
             <a href="products.html" class="payment-button payment-link">
@@ -113,10 +121,11 @@
         </section>
 
         <section id="payment-success" class="payment-panel payment-result" hidden>
-            <div class="result-icon">✓</div>
+            <div class="result-icon" aria-hidden="true">✓</div>
+            <span class="payment-eyebrow">PEMBAYARAN TERKONFIRMASI</span>
             <h2>Pembayaran Berhasil!</h2>
             <p>Pembayaran demo kamu sudah berhasil dikonfirmasi.</p>
-            <p id="payment-success-code"></p>
+            <p id="payment-success-code" class="payment-success-code"></p>
             <a href="products.html" class="payment-button payment-link">
                 Kembali ke Katalog
             </a>

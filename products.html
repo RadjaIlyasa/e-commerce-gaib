@@ -1,143 +1,162 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Katalog — Pasar Gaib</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/responsive.css" />
-  <link rel="icon" type="image/jpeg" href="asset/logo.jpeg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0B">
+  <meta name="description" content="Jelajahi koleksi artefak mistis dan benda pilihan Nusantara di Pasar Gaib.">
+  <title>Katalog Produk | Pasar Gaib</title>
+
+  <link rel="icon" type="image/jpeg" href="asset/logo.jpeg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/products.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
   <header>
+    <nav class="navbar" aria-label="Navigasi utama">
+      <div class="container navbar__inner">
+        <a href="index.html" class="navbar__logo" aria-label="Pasar Gaib — Beranda">
+          <img
+            src="asset/logo.jpeg"
+            alt="Logo Pasar Gaib"
+            class="navbar__logo-img"
+            width="38"
+            height="38"
+          >
+          <span class="navbar__logo-text">
+            <span class="navbar__logo-name">Pasar Gaib</span>
+            <span class="navbar__logo-sub">Artefak Mistis Nusantara</span>
+          </span>
+        </a>
 
-<nav class="navbar" role="navigation" aria-label="Navigasi utama">
-  <div class="container navbar__inner">
+        <ul class="navbar__menu" role="list">
+          <li><a class="navbar__link" href="index.html">Beranda</a></li>
+          <li><a class="navbar__link active" href="products.html" aria-current="page">Katalog</a></li>
+          <li><a class="navbar__link" href="index.html#tentang">Tentang</a></li>
+        </ul>
 
-    <!-- Logo -->
-    <a href="index.html" class="navbar__logo"
-       aria-label="Pasar Gaib — Beranda">
-      <img src="asset/logo.jpeg" alt="Logo Pasar Gaib"
-           class="navbar__logo-img" width="38" height="38" />
-      <div class="navbar__logo-text">
-        <span class="navbar__logo-name">Pasar Gaib</span>
-        <span class="navbar__logo-sub">Artefak Mistis Nusantara</span>
+        <a href="cart.html" class="navbar__cart navbar__cart--desktop" aria-label="Keranjang belanja">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"></path>
+          </svg>
+          Keranjang
+          <span class="navbar__cart-badge" aria-label="Jumlah item">0</span>
+        </a>
+
+        <button
+          class="navbar__hamburger"
+          type="button"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+          <span class="navbar__hamburger-line"></span>
+        </button>
       </div>
-    </a>
+    </nav>
 
-    <!-- Menu Desktop -->
-    <ul class="navbar__menu" role="list">
-      <li><a class="navbar__link" href="index.html">Beranda</a></li>
-      <li><a class="navbar__link active" href="products.html">Katalog</a></li>
-      <li><a class="navbar__link" href="index.html#tentang">Tentang</a></li>
-    </ul>
-
-    <!-- Cart Desktop -->
-    <a href="cart.html" class="navbar__cart navbar__cart--desktop"
-       aria-label="Keranjang belanja">
-      <svg width="14" height="14" viewBox="0 0 24 24"
-           fill="none" stroke="currentColor" stroke-width="2"
-           aria-hidden="true">
-        <circle cx="8" cy="21" r="1"/>
-        <circle cx="19" cy="21" r="1"/>
-        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"/>
-      </svg>
-      Keranjang
-      <span class="navbar__cart-badge" aria-label="jumlah item">0</span>
-    </a>
-
-    <!-- Hamburger Mobile -->
-    <button class="navbar__hamburger"
-            aria-label="Buka menu"
-            aria-expanded="false"
-            aria-controls="mobile-menu">
-      <span class="navbar__hamburger-line"></span>
-      <span class="navbar__hamburger-line"></span>
-      <span class="navbar__hamburger-line"></span>
-    </button>
-
-  </div>
-</nav>
-
-<!-- Mobile Drawer -->
-<nav class="navbar__mobile-menu" id="mobile-menu"
-     aria-label="Menu mobile">
-  <a class="navbar__mobile-link" href="index.html">Beranda</a>
-  <a class="navbar__mobile-link active" href="products.html">Katalog</a>
-  <a class="navbar__mobile-link" href="index.html#tentang">Tentang</a>
-
-  <a class="navbar__mobile-cart" href="cart.html"
-     aria-label="Keranjang belanja">
-    <svg width="14" height="14" viewBox="0 0 24 24"
-         fill="none" stroke="currentColor" stroke-width="2"
-         aria-hidden="true">
-      <circle cx="8" cy="21" r="1"/>
-      <circle cx="19" cy="21" r="1"/>
-      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"/>
-    </svg>
-    Keranjang
-    <span class="navbar__cart-badge" aria-label="jumlah item">0</span>
-  </a>
-</nav>
-
+    <nav class="navbar__mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+      <a class="navbar__mobile-link" href="index.html">Beranda</a>
+      <a class="navbar__mobile-link active" href="products.html" aria-current="page">Katalog</a>
+      <a class="navbar__mobile-link" href="index.html#tentang">Tentang</a>
+      <a class="navbar__mobile-cart" href="cart.html" aria-label="Keranjang belanja">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="8" cy="21" r="1"></circle>
+          <circle cx="19" cy="21" r="1"></circle>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"></path>
+        </svg>
+        Keranjang
+        <span class="navbar__cart-badge" aria-label="Jumlah item">0</span>
+      </a>
+    </nav>
   </header>
 
-  <main class="page-main">
-    <section class="container" style="padding-top: var(--space-8); padding-bottom: var(--space-8)">
-      <div style="text-align:center; margin-bottom:var(--space-8)">
+  <main id="main-content" class="page-main catalog-page">
+    <section class="container catalog-section" aria-labelledby="catalog-title">
+      <header class="catalog-heading">
         <p class="section-eyebrow">Jelajahi Koleksi</p>
-        <h1 class="section-title">Katalog <em>Produk</em></h1>
-        <div class="divider-gold"></div>
-        <p style="color:var(--clr-parchment-dim)">
-          Temukan artefak pilihan dari penjuru Nusantara.
+        <h1 id="catalog-title" class="section-title">Katalog <em>Produk</em></h1>
+        <div class="divider-gold" aria-hidden="true"></div>
+        <p class="catalog-intro">
+          Temukan artefak pilihan dari penjuru Nusantara dan pilih koleksi yang paling menarik bagimu.
+        </p>
+      </header>
+
+      <form id="catalog-filters" class="catalog-filters">
+        <div class="catalog-filters__heading">
+          <div>
+            <p class="catalog-filters__eyebrow">Temukan koleksimu</p>
+            <h2>Filter Produk</h2>
+          </div>
+          <button class="btn btn--secondary catalog-reset" type="reset" id="reset-filters">
+            Reset Filter
+          </button>
+        </div>
+
+        <div class="catalog-filter-grid">
+          <div class="catalog-field catalog-field--search">
+            <label for="search-input">Cari produk</label>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Nama, deskripsi, atau kategori..."
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="catalog-field">
+            <label for="category-filter">Kategori</label>
+            <select id="category-filter">
+              <option value="">Semua kategori</option>
+            </select>
+          </div>
+
+          <div class="catalog-field">
+            <label for="sort-filter">Urutkan produk</label>
+            <select id="sort-filter">
+              <option value="">Urutan default</option>
+              <option value="price_asc">Harga termurah</option>
+              <option value="price_desc">Harga termahal</option>
+              <option value="newest">Terbaru</option>
+            </select>
+          </div>
+
+          <fieldset class="catalog-price-range">
+            <legend>Rentang harga</legend>
+            <div class="catalog-price-range__fields">
+              <div class="catalog-field">
+                <label for="min-price">Minimum (Rp)</label>
+                <input id="min-price" type="number" min="0" inputmode="numeric" placeholder="Contoh: 50000">
+              </div>
+              <span class="catalog-price-range__separator" aria-hidden="true">—</span>
+              <div class="catalog-field">
+                <label for="max-price">Maksimum (Rp)</label>
+                <input id="max-price" type="number" min="0" inputmode="numeric" placeholder="Contoh: 200000">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </form>
+
+      <div class="catalog-results">
+        <div>
+          <p class="catalog-results__eyebrow">Koleksi Pasar Gaib</p>
+          <h2>Semua Produk</h2>
+        </div>
+        <p id="catalog-count" class="catalog-count" role="status" aria-live="polite">
+          Memuat produk...
         </p>
       </div>
 
-      <form id="catalog-filters"
-            style="display:grid; gap:var(--space-4); margin-bottom:var(--space-8)">
-        <label for="search-input">Cari produk</label>
-        <input id="search-input" type="search"
-               placeholder="Nama, deskripsi, atau kategori..." />
-
-        <label for="category-filter">Kategori</label>
-        <select id="category-filter">
-          <option value="">Semua kategori</option>
-        </select>
-
-        <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-4)">
-          <div>
-            <label for="min-price">Harga minimum (Rp)</label>
-            <input id="min-price" type="number" min="0"
-                   placeholder="Contoh: 50000" />
-          </div>
-          <div>
-            <label for="max-price">Harga maksimum (Rp)</label>
-            <input id="max-price" type="number" min="0"
-                   placeholder="Contoh: 200000" />
-          </div>
-        </div>
-
-        <label for="sort-filter">Urutkan produk</label>
-        <select id="sort-filter">
-          <option value="">Urutan default</option>
-          <option value="price_asc">Harga termurah</option>
-          <option value="price_desc">Harga termahal</option>
-          <option value="newest">Terbaru</option>
-        </select>
-
-        <button class="btn btn--secondary" type="reset" id="reset-filters">
-          Reset Filter
-        </button>
-      </form>
-
-      <p id="catalog-count" role="status"
-         style="margin-bottom:var(--space-4)">
-        Memuat produk...
-      </p>
-
-      <div id="catalog-grid" class="product-grid" aria-live="polite">
-        <p>Memuat koleksi...</p>
+      <div id="catalog-grid" class="product-grid catalog-grid" aria-live="polite" aria-busy="true">
+        <p class="catalog-loading">Memuat koleksi...</p>
       </div>
     </section>
   </main>

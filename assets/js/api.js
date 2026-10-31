@@ -6,10 +6,14 @@
 
 // ── Konfigurasi ───────────────────────────────────────────────────────────────
 
+const IS_LOCAL = ['localhost', '127.0.0.1'].includes(
+    window.location.hostname
+);
+
+
 const CONFIG = {
   // URL dasar API. Sesuaikan jika nama folder berbeda.
-  BASE_URL: '/toko-dukun/api',
-
+  BASE_URL: IS_LOCAL ? '/toko-dukun/api' : '/api',
   // Aktifkan mock data jika backend belum tersedia.
   // Set ke false saat backend PHP sudah siap.
   USE_MOCK: false,
@@ -37,7 +41,7 @@ const MOCK_PRODUCTS = [
     category: 'Senjata Pusaka',
     price: 4750000,
     stock: 1,
-    image: '/toko-dukun/asset/keris-pusaka.jpeg',
+    image: '/asset/keris-pusaka.jpeg',
     description:
       'Keris buatan empu pilihan abad ke-14 dengan pamor bumi yang konon mampu mengusir energi negatif dari hunian. Bilah 13 luk, warangka kayu timoho.',
     featured: true,
@@ -49,7 +53,7 @@ const MOCK_PRODUCTS = [
     category: 'Makhluk Tersegel',
     price: 3200000,
     stock: 2,
-    image: '/toko-dukun/asset/jenglot.jpeg',
+    image: '/asset/jenglot.jpeg',
     description:
       'Jenglot autentik dari situs petilasan di kawasan Demak. Disertai surat keterangan asal-usul dan cara perawatan.',
     featured: true,
@@ -61,7 +65,7 @@ const MOCK_PRODUCTS = [
     category: 'Jimat & Mantra',
     price: 1850000,
     stock: 5,
-    image: '/toko-dukun/asset/boneka-santet.jpeg',
+    image: '/asset/boneka-santet.jpeg',
     description:
       'Boneka wanita dibungkus kain kafan tua, dilengkapi rambut asli. Digunakan dalam ritual tertentu. Hanya untuk kolektor dewasa.',
     featured: true,
@@ -73,7 +77,7 @@ const MOCK_PRODUCTS = [
     category: 'Jimat & Mantra',
     price: 2300000,
     stock: 8,
-    image: '/toko-dukun/asset/jarum-susuk.jpeg',
+    image: '/asset/jarum-susuk.jpeg',
     description:
       'Jarum susuk dari emas 22 karat yang telah melalui proses ritual 7 malam. Dipercaya meningkatkan pesona dan kewibawaan pemakainya.',
     featured: false,
@@ -85,7 +89,7 @@ const MOCK_PRODUCTS = [
     category: 'Batu Bertuah',
     price: 980000,
     stock: 12,
-    image: '/toko-dukun/asset/batu-akik.jpeg',
+    image: '/asset/batu-akik.jpeg',
     description:
       'Batu giok asli Kalimantan dengan pola serat menyerupai naga. Dikenal di kalangan penggemar batu akik sebagai batu rezeki.',
     featured: false,
@@ -97,7 +101,7 @@ const MOCK_PRODUCTS = [
     category: 'Media Pemanggil',
     price: 750000,
     stock: 3,
-    image: '/toko-dukun/asset/jelangkung.jpeg',
+    image: '/asset/jelangkung.jpeg',
     description:
       'Set jelangkung lengkap dengan tempurung kelapa, ijuk, dan kain putih. Disertai panduan ritual yang aman dan cara menutup sesi.',
     featured: false,
@@ -109,7 +113,7 @@ const MOCK_PRODUCTS = [
     category: 'Alat Ramalan',
     price: 450000,
     stock: 20,
-    image: '/toko-dukun/asset/karrtu-tarot.jpeg',
+    image: '/asset/karrtu-tarot.jpeg',
     description:
       'Deck tarot 78 kartu bergambar wayang dan mitologi Nusantara. Ilustrasi tangan oleh seniman lokal Yogyakarta, dicetak di atas kertas linen premium.',
     featured: true,
@@ -121,7 +125,7 @@ const MOCK_PRODUCTS = [
     category: 'Artefak Ritual',
     price: 5500000,
     stock: 1,
-    image: '/toko-dukun/asset/topeng-rangda.jpeg',
+    image: '/asset/topeng-rangda.jpeg',
     description:
       'Topeng Rangda sakral ukiran kayu pule dari pengrajin Ubud. Digunakan dalam pertunjukan Calonarang. Sudah melalui upacara pamarisudha.',
     featured: true,
@@ -133,7 +137,7 @@ const MOCK_PRODUCTS = [
     category: 'Artefak Ritual',
     price: 2100000,
     stock: 4,
-    image: '/toko-dukun/asset/wayang-kulit.jpeg',
+    image: '/asset/wayang-kulit.jpeg',
     description:
       'Wayang kulit tokoh Gatotkaca dari kulit kerbau pilihan, gapit tanduk kerbau, tatahan halus motif bledeg. Karya dalang seniman Surakarta.',
     featured: false,
@@ -141,12 +145,12 @@ const MOCK_PRODUCTS = [
 ];
 
 const MOCK_CATEGORIES = [
-  { id: 1, name: 'Senjata Pusaka',   count: 1, image: '/toko-dukun/asset/keris-pusaka.jpeg' },
-  { id: 2, name: 'Makhluk Tersegel', count: 2, image: '/toko-dukun/asset/jenglot.jpeg' },
-  { id: 3, name: 'Jimat & Mantra',   count: 2, image: '/toko-dukun/asset/boneka-santet.jpeg' },
-  { id: 4, name: 'Batu Bertuah',     count: 1, image: '/toko-dukun/asset/batu-akik.jpeg' },
-  { id: 5, name: 'Alat Ramalan',     count: 1, image: '/toko-dukun/asset/karrtu-tarot.jpeg' },
-  { id: 6, name: 'Artefak Ritual',   count: 2, image: '/toko-dukun/asset/topeng-rangda.jpeg' },
+  { id: 1, name: 'Senjata Pusaka',   count: 1, image: '/asset/keris-pusaka.jpeg' },
+  { id: 2, name: 'Makhluk Tersegel', count: 2, image: '/asset/jenglot.jpeg' },
+  { id: 3, name: 'Jimat & Mantra',   count: 2, image: '/asset/boneka-santet.jpeg' },
+  { id: 4, name: 'Batu Bertuah',     count: 1, image: '/asset/batu-akik.jpeg' },
+  { id: 5, name: 'Alat Ramalan',     count: 1, image: '/asset/karrtu-tarot.jpeg' },
+  { id: 6, name: 'Artefak Ritual',   count: 2, image: '/asset/topeng-rangda.jpeg' },
 ];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -225,7 +229,7 @@ function normalizeProduct(product) {
     category: product.nama_kategori,
     price: Number(product.harga),
     stock: Number(product.stok),
-    image: `/toko-dukun/asset/${product.gambar}`,
+    image: `${IS_LOCAL ? '/toko-dukun' : ''}/asset/${product.gambar}`,
     description: product.deskripsi || 'Belum ada deskripsi produk.',
   };
 }
@@ -315,8 +319,8 @@ export async function getCategories() {
       name: category.nama_kategori,
       count: Number(category.jumlah_produk),
       image: category.gambar
-        ? `/toko-dukun/asset/${category.gambar}`
-        : '/toko-dukun/asset/background.jpeg',
+      ? `${IS_LOCAL ? '/toko-dukun' : ''}/asset/${category.gambar}`
+      : `${IS_LOCAL ? '/toko-dukun' : ''}/asset/background.jpeg`,
     })),
   };
 }

@@ -1,465 +1,276 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Selesaikan pesananmu di Pasar Gaib.">
+    <meta name="description" content="Selesaikan pesananmu dengan aman di Pasar Gaib.">
+    <meta name="theme-color" content="#0A0A0B">
     <title>Checkout | Pasar Gaib</title>
 
+    <link rel="icon" type="image/jpeg" href="asset/logo.jpeg">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-
-    <style>
-        .checkout-page {
-            width: min(1100px, 92%);
-            margin: 40px auto 80px;
-        }
-
-        .checkout-heading {
-            margin-bottom: 28px;
-        }
-
-        .checkout-heading h1 {
-            margin-bottom: 8px;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-        }
-
-        .checkout-heading p {
-            opacity: .75;
-        }
-
-        .checkout-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
-            align-items: start;
-            gap: 24px;
-        }
-
-        .checkout-panel,
-        .checkout-summary {
-            padding: 24px;
-            border: 1px solid rgba(98, 159, 173, .35);
-            border-radius: 16px;
-            background: var(--color-surface, #EDEDCE);
-            color: var(--color-ink, #0C2C55);
-        }
-
-        .checkout-panel h2,
-        .checkout-summary h2 {
-            margin: 0 0 22px;
-            font-size: 1.2rem;
-        }
-
-        .checkout-form {
-            display: grid;
-            gap: 18px;
-        }
-
-        .form-group {
-            display: grid;
-            gap: 7px;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            font-size: .92rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1px solid rgba(12, 44, 85, .25);
-            border-radius: 9px;
-            background: #fff;
-            color: #0C2C55;
-            font: inherit;
-        }
-
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: 2px solid #629FAD;
-            outline-offset: 2px;
-        }
-
-        .form-hint {
-            font-size: .8rem;
-            opacity: .7;
-        }
-
-        .checkout-summary {
-            position: sticky;
-            top: 24px;
-        }
-
-        .checkout-products {
-            display: grid;
-            gap: 15px;
-        }
-
-        .checkout-product {
-            display: grid;
-            grid-template-columns: 58px minmax(0, 1fr) auto;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .checkout-product img {
-            width: 58px;
-            height: 64px;
-            border-radius: 8px;
-            object-fit: cover;
-            background: #fff;
-        }
-
-        .checkout-product__name {
-            margin: 0 0 4px;
-            font-size: .9rem;
-            overflow-wrap: anywhere;
-        }
-
-        .checkout-product__quantity {
-            font-size: .8rem;
-            opacity: .7;
-        }
-
-        .checkout-product__price {
-            font-size: .88rem;
-            font-weight: 700;
-            text-align: right;
-        }
-
-        .checkout-divider {
-            border: none;
-            border-top: 1px solid rgba(12, 44, 85, .2);
-            margin: 20px 0;
-        }
-
-        .checkout-summary-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 14px;
-            margin: 15px 0;
-            font-size: .93rem;
-        }
-
-        .checkout-summary-row span:last-child {
-            text-align: right;
-        }
-
-        .checkout-total {
-            font-size: 1.08rem;
-            font-weight: 800;
-        }
-
-        .checkout-submit {
-            width: 100%;
-            margin-top: 20px;
-            padding: 14px 18px;
-            border: none;
-            border-radius: 10px;
-            background: #296374;
-            color: white;
-            font: inherit;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .checkout-submit:hover {
-            background: #1d4b59;
-        }
-
-        .checkout-submit:disabled {
-            opacity: .6;
-            cursor: not-allowed;
-        }
-
-        .checkout-back {
-            display: inline-block;
-            margin-top: 18px;
-            color: inherit;
-            text-decoration: underline;
-            font-weight: 600;
-        }
-
-        .checkout-message {
-            margin-bottom: 18px;
-            padding: 12px 14px;
-            border-radius: 8px;
-            line-height: 1.5;
-            overflow-wrap: anywhere;
-        }
-
-        .checkout-message[hidden],
-        .checkout-layout[hidden],
-        .checkout-empty[hidden] {
-            display: none;
-        }
-
-        .checkout-empty {
-            padding: 32px 24px;
-            border: 1px solid rgba(98, 159, 173, .35);
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .checkout-empty a {
-            display: inline-block;
-            margin-top: 12px;
-        }
-
-        .checkout-success {
-            padding: 28px 20px;
-            border: 1px solid rgba(98, 159, 173, .35);
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .checkout-success h2 {
-            margin-bottom: 12px;
-        }
-
-        .checkout-success p {
-            line-height: 1.6;
-            overflow-wrap: anywhere;
-        }
-
-        @media (max-width: 760px) {
-            .checkout-page {
-                margin-top: 28px;
-            }
-
-            .checkout-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .checkout-summary {
-                position: static;
-            }
-
-            .checkout-panel,
-            .checkout-summary {
-                padding: 18px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .checkout-product {
-                grid-template-columns: 48px minmax(0, 1fr);
-            }
-
-            .checkout-product img {
-                width: 48px;
-                height: 54px;
-            }
-
-            .checkout-product__price {
-                grid-column: 2;
-                text-align: left;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/checkout.css">
 </head>
-
 <body>
-    <header class="navbar">
-        <div class="navbar__container">
-            <a href="index.html" class="navbar__brand" aria-label="Pasar Gaib - Beranda">
-                <img src="asset/logo.jpeg" alt="Logo Pasar Gaib" width="40" height="40">
-                <span>Pasar Gaib</span>
-            </a>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
 
-            <nav class="navbar__links" aria-label="Navigasi utama">
-                <a href="index.html" class="navbar__link">Beranda</a>
-                <a href="products.html" class="navbar__link">Katalog</a>
-                <a href="index.html#about" class="navbar__link">Tentang</a>
-            </nav>
-
-            <div class="navbar__actions">
-                <a href="cart.html" class="navbar__cart" aria-label="Keranjang belanja">
-                    <svg width="24" height="24" viewBox="0 0 24 24"
-                         fill="none" stroke="currentColor" stroke-width="1.8"
-                         stroke-linecap="round" stroke-linejoin="round"
-                         aria-hidden="true">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span class="navbar__cart-badge">0</span>
+    <header>
+        <nav class="navbar" aria-label="Navigasi utama">
+            <div class="container navbar__inner">
+                <a href="index.html" class="navbar__logo" aria-label="Pasar Gaib — Beranda">
+                    <img
+                        src="asset/logo.jpeg"
+                        alt="Logo Pasar Gaib"
+                        class="navbar__logo-img"
+                        width="38"
+                        height="38"
+                    >
+                    <span class="navbar__logo-text">
+                        <span class="navbar__logo-name">Pasar Gaib</span>
+                        <span class="navbar__logo-sub">Artefak Mistis Nusantara</span>
+                    </span>
                 </a>
 
-                <button class="navbar__hamburger" type="button"
-                        aria-label="Buka menu" aria-expanded="false"
-                        aria-controls="mobile-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <ul class="navbar__menu" role="list">
+                    <li><a class="navbar__link" href="index.html">Beranda</a></li>
+                    <li><a class="navbar__link" href="products.html">Katalog</a></li>
+                    <li><a class="navbar__link" href="index.html#tentang">Tentang</a></li>
+                </ul>
+
+                <a href="cart.html" class="navbar__cart navbar__cart--desktop" aria-label="Keranjang belanja">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="8" cy="21" r="1"></circle>
+                        <circle cx="19" cy="21" r="1"></circle>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"></path>
+                    </svg>
+                    Keranjang
+                    <span class="navbar__cart-badge" aria-label="Jumlah item">0</span>
+                </a>
+
+                <button
+                    class="navbar__hamburger"
+                    type="button"
+                    aria-label="Buka menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                >
+                    <span class="navbar__hamburger-line"></span>
+                    <span class="navbar__hamburger-line"></span>
+                    <span class="navbar__hamburger-line"></span>
                 </button>
             </div>
-        </div>
+        </nav>
 
-        <nav class="navbar__mobile-menu" id="mobile-menu"
-             aria-label="Navigasi seluler">
-            <a href="index.html" class="navbar__mobile-link">Beranda</a>
-            <a href="products.html" class="navbar__mobile-link">Katalog</a>
-            <a href="index.html#about" class="navbar__mobile-link">Tentang</a>
-            <a href="cart.html" class="navbar__mobile-link navbar__mobile-cart">
-                Keranjang (<span class="navbar__cart-badge">0</span>)
+        <nav class="navbar__mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+            <a class="navbar__mobile-link" href="index.html">Beranda</a>
+            <a class="navbar__mobile-link" href="products.html">Katalog</a>
+            <a class="navbar__mobile-link" href="index.html#tentang">Tentang</a>
+            <a class="navbar__mobile-cart" href="cart.html" aria-label="Keranjang belanja">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="8" cy="21" r="1"></circle>
+                    <circle cx="19" cy="21" r="1"></circle>
+                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"></path>
+                </svg>
+                Keranjang
+                <span class="navbar__cart-badge" aria-label="Jumlah item">0</span>
             </a>
         </nav>
     </header>
 
-    <main class="checkout-page">
-        <div class="checkout-heading">
-            <h1>Checkout</h1>
-            <p>Isi informasi penerima dengan benar sebelum membuat pesanan.</p>
-        </div>
+    <main id="main-content" class="page-main">
+        <section class="container checkout-page" aria-labelledby="checkout-title">
+            <header class="checkout-heading">
+                <p class="section-eyebrow">Satu langkah lagi</p>
+                <h1 id="checkout-title" class="section-title">Selesaikan <em>Pesanan</em></h1>
+                <div class="divider-gold" aria-hidden="true"></div>
+                <p>Isi informasi penerima dan pilih metode pembayaran untuk melanjutkan.</p>
+            </header>
 
-        <div id="checkout-message" class="checkout-message" role="status" hidden></div>
+            <p id="checkout-message" class="checkout-message" role="status" aria-live="polite" hidden></p>
 
-        <section id="checkout-empty" class="checkout-empty" hidden>
-            <h2>Keranjangmu masih kosong</h2>
-            <p>Tambahkan produk terlebih dahulu sebelum checkout.</p>
-            <a href="products.html">Kembali ke katalog</a>
-        </section>
-
-        <div id="checkout-layout" class="checkout-layout">
-            <section class="checkout-panel">
-                <h2>Informasi Penerima</h2>
-
-                <form id="checkout-form" class="checkout-form">
-                    <div class="form-group">
-                        <label for="customer-name">Nama lengkap *</label>
-                        <input id="customer-name" name="nama" type="text"
-                               autocomplete="name" maxlength="100"
-                               required placeholder="Nama penerima">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-email">Email *</label>
-                        <input id="customer-email" name="email" type="email"
-                               autocomplete="email" maxlength="150"
-                               required placeholder="nama@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-phone">Nomor HP *</label>
-                        <input id="customer-phone" name="telepon" type="tel"
-                               autocomplete="tel" maxlength="20"
-                               required placeholder="Contoh: 081234567890">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-address">Alamat lengkap *</label>
-                        <textarea id="customer-address" name="alamat"
-                                  autocomplete="street-address" maxlength="500"
-                                  required placeholder="Jalan, nomor rumah, kelurahan, kecamatan, kota, kode pos"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="customer-notes">Catatan pesanan (opsional)</label>
-                        <textarea id="customer-notes" name="catatan"
-                                  maxlength="500"
-                                  placeholder="Petunjuk untuk pengiriman, jika ada"></textarea>
-                    </div>
-
-                    <p class="form-hint">
-                        * Wajib diisi. Pastikan nomor HP dan alamat dapat digunakan untuk menghubungi penerima.
-                    </p>
-                    
-                    <!-- Metode Pembayaran -->
-                    <section class="checkout-payment">
-                        <h2>Metode Pembayaran</h2>
-                        <p>Pilih metode pembayaran untuk pesananmu.</p>
-
-                    <label class="payment-option">
-                        <input
-                            type="radio"
-                            name="payment_method"
-                            value="COD"
-                            checked
-                        >
-                        <span><strong>Bayar di Tempat (COD)</strong><small>Bayar ketika barang diterima.</small></span>
-                        </label>
-
-                    <label class="payment-option">
-                        <input
-                            type="radio"
-                            name="payment_method"
-                            value="QRIS"
-                        >
-                        <span>
-                            <strong>QRIS Demo</strong>
-                            <small>Simulasi pembayaran menggunakan QRIS.</small>
-                        </span>
-                    </label>
-
-                    <label class="payment-option">
-                        <input
-                            type="radio"
-                            name="payment_method"
-                            value="TRANSFER"
-                        >
-                        <span>
-                            <strong>Transfer Bank Demo</strong>
-                            <small>Simulasi transfer dengan kode pembayaran.</small>
-                        </span>
-                    </label>
-
-                    <p class="payment-demo-notice">
-                        Catatan: QRIS dan transfer di sini hanya simulasi.
-                        Tidak ada uang sungguhan yang diproses.
-                    </p>
-                    </section>
-                    <button id="checkout-submit" class="checkout-submit" type="submit">
-                        Buat Pesanan
-                    </button>
-                </form>
+            <section id="checkout-empty" class="checkout-panel checkout-empty" aria-labelledby="checkout-empty-title" hidden>
+                <div class="checkout-empty__icon" aria-hidden="true">✦</div>
+                <p class="checkout-panel__eyebrow">Belum ada pesanan</p>
+                <h2 id="checkout-empty-title">Keranjangmu masih kosong</h2>
+                <p>Tambahkan produk ke keranjang sebelum melanjutkan checkout.</p>
+                <a href="products.html" class="btn btn--primary checkout-action">
+                    Kembali ke Katalog
+                </a>
             </section>
 
-            <aside class="checkout-summary">
-                <h2>Ringkasan Pesanan</h2>
+            <div id="checkout-layout" class="checkout-layout">
+                <section class="checkout-panel checkout-form-panel" aria-labelledby="customer-heading">
+                    <header class="checkout-panel__heading">
+                        <span class="checkout-step" aria-hidden="true"></span>
+                        <div>
+                            <p class="checkout-panel__eyebrow">Informasi pengiriman</p>
+                            <h2 id="customer-heading">Data Penerima</h2>
+                        </div>
+                    </header>
 
-                <div id="checkout-products" class="checkout-products"></div>
+                    <form id="checkout-form" class="checkout-form">
+                        <div class="checkout-fields">
+                            <div class="form-group">
+                                <label for="customer-name">Nama lengkap <span aria-hidden="true">*</span></label>
+                                <input
+                                    id="customer-name"
+                                    name="nama"
+                                    type="text"
+                                    autocomplete="name"
+                                    maxlength="100"
+                                    required
+                                    placeholder="Nama penerima"
+                                >
+                            </div>
 
-                <hr class="checkout-divider">
+                            <div class="form-group">
+                                <label for="customer-email">Email <span aria-hidden="true">*</span></label>
+                                <input
+                                    id="customer-email"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    maxlength="150"
+                                    required
+                                    placeholder="nama@email.com"
+                                >
+                            </div>
 
-                <div class="checkout-summary-row">
-                    <span>Subtotal</span>
-                    <span id="checkout-subtotal">Rp0</span>
-                </div>
+                            <div class="form-group form-group--full">
+                                <label for="customer-phone">Nomor HP <span aria-hidden="true">*</span></label>
+                                <input
+                                    id="customer-phone"
+                                    name="telepon"
+                                    type="tel"
+                                    autocomplete="tel"
+                                    maxlength="20"
+                                    required
+                                    placeholder="Contoh: 081234567890"
+                                >
+                            </div>
 
-                <div class="checkout-summary-row">
-                    <span>Estimasi ongkir</span>
-                    <span id="checkout-shipping">Rp0</span>
-                </div>
+                            <div class="form-group form-group--full">
+                                <label for="customer-address">Alamat lengkap <span aria-hidden="true">*</span></label>
+                                <textarea
+                                    id="customer-address"
+                                    name="alamat"
+                                    autocomplete="street-address"
+                                    maxlength="500"
+                                    required
+                                    placeholder="Jalan, nomor rumah, kelurahan, kecamatan, kota, kode pos"
+                                ></textarea>
+                            </div>
 
-                <hr class="checkout-divider">
+                            <div class="form-group form-group--full">
+                                <label for="customer-notes">Catatan pesanan <span class="form-label-optional">(opsional)</span></label>
+                                <textarea
+                                    id="customer-notes"
+                                    name="catatan"
+                                    maxlength="500"
+                                    placeholder="Petunjuk tambahan untuk pengiriman, jika ada"
+                                ></textarea>
+                            </div>
+                        </div>
 
-                <div class="checkout-summary-row checkout-total">
-                    <span>Total estimasi</span>
-                    <span id="checkout-total">Rp0</span>
-                </div>
+                        <p class="form-hint">
+                            <span aria-hidden="true">*</span>
+                            Wajib diisi. Pastikan nomor HP dan alamat dapat digunakan untuk menghubungi penerima.
+                        </p>
 
-                <p style="font-size:.8rem;line-height:1.5;opacity:.75;">
-                    Total final akan divalidasi kembali oleh server saat pesanan dibuat.
-                </p>
+                        <fieldset class="checkout-payment">
+                            <legend>Pilih metode pembayaran</legend>
+                            <p class="checkout-payment__description">
+                                Pilih metode yang paling nyaman untuk pesananmu.
+                            </p>
 
-                <a href="cart.html" class="checkout-back">Kembali ke keranjang</a>
-            </aside>
-        </div>
+                            <div class="payment-options">
+                                <label class="payment-option">
+                                    <input type="radio" name="payment_method" value="COD" checked>
+                                    <span class="payment-option__indicator" aria-hidden="true"></span>
+                                    <span class="payment-option__content">
+                                        <strong>Bayar di Tempat (COD)</strong>
+                                        <small>Bayar ketika barang diterima.</small>
+                                    </span>
+                                    <span class="payment-option__tag">Praktis</span>
+                                </label>
 
-        <section id="checkout-success" class="checkout-success" hidden>
-            <h2>Pesanan berhasil dibuat!</h2>
-            <p id="checkout-success-detail"></p>
-            <a href="products.html">Kembali ke katalog</a>
+                                <label class="payment-option">
+                                    <input type="radio" name="payment_method" value="QRIS">
+                                    <span class="payment-option__indicator" aria-hidden="true"></span>
+                                    <span class="payment-option__content">
+                                        <strong>QRIS Demo</strong>
+                                        <small>Simulasi pembayaran menggunakan QRIS.</small>
+                                    </span>
+                                </label>
+
+                                <label class="payment-option">
+                                    <input type="radio" name="payment_method" value="TRANSFER">
+                                    <span class="payment-option__indicator" aria-hidden="true"></span>
+                                    <span class="payment-option__content">
+                                        <strong>Transfer Bank Demo</strong>
+                                        <small>Simulasi transfer melalui rekening tujuan.</small>
+                                    </span>
+                                </label>
+                            </div>
+
+                            <p class="payment-demo-notice">
+                                QRIS dan transfer hanya simulasi. Tidak ada uang sungguhan yang diproses.
+                            </p>
+                        </fieldset>
+
+                        <button id="checkout-submit" class="btn btn--primary checkout-submit" type="submit">
+                            Buat Pesanan
+                            <span aria-hidden="true">→</span>
+                        </button>
+                    </form>
+                </section>
+
+                <aside class="checkout-summary" aria-labelledby="summary-heading">
+                    <p class="checkout-panel__eyebrow">Rincian pembayaran</p>
+                    <h2 id="summary-heading">Ringkasan Pesanan</h2>
+
+                    <div id="checkout-products" class="checkout-products"></div>
+
+                    <hr class="checkout-divider">
+
+                    <div class="checkout-summary-row">
+                        <span>Subtotal</span>
+                        <strong id="checkout-subtotal">Rp0</strong>
+                    </div>
+
+                    <div class="checkout-summary-row">
+                        <span>Estimasi ongkir</span>
+                        <strong id="checkout-shipping">Rp0</strong>
+                    </div>
+
+                    <hr class="checkout-divider">
+
+                    <div class="checkout-summary-row checkout-total">
+                        <span>Total estimasi</span>
+                        <strong id="checkout-total">Rp0</strong>
+                    </div>
+
+                    <p class="checkout-summary__note">
+                        Total final akan divalidasi kembali oleh server saat pesanan dibuat.
+                    </p>
+
+                    <a href="cart.html" class="checkout-back">
+                        <span aria-hidden="true">←</span>
+                        Kembali ke keranjang
+                    </a>
+                </aside>
+            </div>
+
+            <section id="checkout-success" class="checkout-panel checkout-success" hidden>
+                <div class="checkout-success__icon" aria-hidden="true">✓</div>
+                <p class="checkout-panel__eyebrow">Pesanan terkonfirmasi</p>
+                <h2>Pesanan berhasil dibuat!</h2>
+                <p id="checkout-success-detail"></p>
+                <a href="products.html" class="btn btn--primary checkout-action">
+                    Kembali ke Katalog
+                </a>
+            </section>
         </section>
     </main>
 

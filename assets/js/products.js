@@ -33,6 +33,51 @@ function showMessage(message, isError = false) {
     notice.style.color = isError ? '#b91c1c' : 'inherit';
 }
 
+function showToast(message, type = 'success') {
+    let container = document.querySelector('.toast-container');
+
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        container.setAttribute('role', 'status');
+        container.setAttribute('aria-live', 'polite');
+        container.setAttribute('aria-relevant', 'additions');
+        document.body.append(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast--${type}`;
+
+    const icon = createElement(
+        'span',
+        'toast__icon',
+        type === 'success' ? '✓' : '!'
+    );
+    icon.setAttribute('aria-hidden', 'true');
+
+    const text = createElement('span', '', message);
+
+    toast.append(icon, text);
+    container.append(toast);
+
+    let isRemoving = false;
+    const removeToast = () => {
+        if (isRemoving) return;
+
+        isRemoving = true;
+        toast.classList.add('removing');
+        toast.addEventListener('animationend', () => toast.remove(), {
+            once: true
+        });
+    };
+
+    const timeout = window.setTimeout(removeToast, 3500);
+    toast.addEventListener('click', () => {
+        window.clearTimeout(timeout);
+        removeToast();
+    });
+}
+
 function updateCartBadge() {
   const count   = getCartCount();
   const badges  = document.querySelectorAll('.navbar__cart-badge');
@@ -119,15 +164,10 @@ function createProductCard(product) {
     button.addEventListener('click', () => {
         const result = addToCart(product, 1);
 
-        if (result?.success) {
-            showMessage(`${product.name} berhasil ditambahkan ke keranjang.`);
-            updateCartBadge();
-        } else {
-            showMessage(
-                result?.message || 'Produk gagal ditambahkan ke keranjang.',
-                true
-            );
-        }
+        showToast(
+            result?.message || 'Produk gagal ditambahkan ke keranjang.',
+            result?.success ? 'success' : 'error'
+        );
     });
 
     footer.append(price, stock);
