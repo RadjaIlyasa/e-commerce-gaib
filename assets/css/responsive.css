@@ -1,0 +1,128 @@
+/* ============================================================
+   PASAR GAIB — Responsive Styles
+   Gothic Nusantara — breakpoints tablet ≤ 900px, mobile ≤ 600px
+   ============================================================ */
+
+/* ── Tablet ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  :root { --navbar-h: 58px; }
+
+  .container { padding-inline: var(--space-5); }
+
+  /* Navbar: hamburger aktif */
+  .navbar__menu { display: none; }
+  .navbar__cart--desktop { display: none; }
+  .navbar__hamburger { display: flex; }
+
+  /* Hero — teks lebih kecil, align tetap tengah */
+  .hero__content {
+    padding-top: calc(var(--navbar-h) + var(--space-10));
+  }
+  .hero__stats {
+    gap: var(--space-6);
+  }
+
+  /* About */
+  .about-section__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  .about-section__image-wrap {
+    aspect-ratio: 16 / 9;
+    order: -1;
+  }
+
+  /* Kategori bento: simplify ke 3 kolom */
+  .categories-bento {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: unset;
+  }
+  .category-card:nth-child(1),
+  .category-card:nth-child(2),
+  .category-card:nth-child(3),
+  .category-card:nth-child(4),
+  .category-card:nth-child(5),
+  .category-card:nth-child(6) {
+    grid-column: span 1;
+  }
+  .category-card { min-height: 180px !important; }
+
+  /* Features */
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Footer */
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .footer__brand { grid-column: 1 / -1; }
+
+  /* Product grid */
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .container { padding-inline: var(--space-4); }
+
+  /* Navbar */
+  .navbar__logo-sub { display: none; }
+
+  /* Hero */
+  .hero__actions { flex-direction: column; gap: var(--space-3); }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .hero__stat dt { font-size: var(--text-xl); }
+  .hero__bg::after {
+    background:
+      linear-gradient(to bottom,
+        rgba(10, 10, 11, 0.75) 0%,
+        rgba(20, 13, 26, 0.82) 45%,
+        rgba(10, 10, 11, 0.98) 100%
+      );
+  }
+
+  /* Kategori: 2 kolom di mobile */
+  .categories-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .category-card { min-height: 160px !important; }
+
+  /* Features: 1 kolom */
+  .features-grid { grid-template-columns: 1fr; }
+
+  /* Footer: 1 kolom */
+  .footer__grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  .footer__bottom { flex-direction: column; text-align: center; }
+  .footer__disclaimer { text-align: center; }
+  .footer__brand-desc { max-width: 100%; }
+
+  /* Toast */
+  .toast-container { left: var(--space-4); right: var(--space-4); }
+  .toast { max-width: 100%; }
+
+  /* Product grid: 2 kolom di mobile */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  /* Section */
+  .section { padding-block: var(--space-12); }
+
+  /* About */
+  .about-section__image-wrap { aspect-ratio: 4 / 3; }
+  .about-section__quote { font-size: var(--text-base); }
+}
+
+/* ── Large Desktop ────────────────────────────────────────── */
+@media (min-width: 1400px) {
+  :root { --container-max: 1360px; }
+  .product-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* ── Print ────────────────────────────────────────────────── */
+@media print {
+  .navbar, .footer, .hero__scroll { display: none; }
+  body { background: white; color: black; }
+}

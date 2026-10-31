@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Periksa produk pilihanmu di keranjang belanja Pasar Gaib.">
+    <title>Keranjang Belanja | Pasar Gaib</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        .cart-page {
+            width: min(1100px, 92%);
+            margin: 40px auto 80px;
+            min-height: 55vh;
+        }
+
+        .cart-heading {
+            margin-bottom: 28px;
+        }
+
+        .cart-heading h1 {
+            margin-bottom: 8px;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+
+        .cart-heading p {
+            opacity: .75;
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+            align-items: start;
+            gap: 24px;
+        }
+
+        .cart-panel,
+        .cart-summary {
+            padding: 24px;
+            border: 1px solid rgba(98, 159, 173, .35);
+            border-radius: 16px;
+            background: var(--color-surface, #EDEDCE);
+            color: var(--color-ink, #0C2C55);
+        }
+
+        .cart-panel__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .cart-panel__header h2,
+        .cart-summary h2 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .cart-clear {
+            border: none;
+            background: transparent;
+            color: #a33232;
+            cursor: pointer;
+            font: inherit;
+            font-size: .9rem;
+            text-decoration: underline;
+        }
+
+        .cart-items {
+            display: grid;
+            gap: 18px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px minmax(0, 1fr);
+            gap: 16px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(12, 44, 85, .15);
+        }
+
+        .cart-item:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .cart-item__image {
+            width: 100px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .cart-item__details {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cart-item__category {
+            font-size: .78rem;
+            opacity: .7;
+        }
+
+        .cart-item__name {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        .cart-item__name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .cart-item__price {
+            font-weight: 700;
+        }
+
+        .cart-item__bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .quantity-control {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 4px;
+            border: 1px solid rgba(12, 44, 85, .2);
+            border-radius: 8px;
+        }
+
+        .quantity-control button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 6px;
+            background: #d6e5e5;
+            color: #0C2C55;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .quantity-control button:disabled {
+            opacity: .4;
+            cursor: not-allowed;
+        }
+
+        .quantity-control span {
+            min-width: 18px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .cart-item__remove {
+            border: none;
+            background: transparent;
+            color: #a33232;
+            cursor: pointer;
+            font: inherit;
+            font-size: .85rem;
+        }
+
+        .cart-summary {
+            position: sticky;
+            top: 24px;
+        }
+
+        .cart-summary h2 {
+            margin-bottom: 22px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            margin: 16px 0;
+            font-size: .95rem;
+        }
+
+        .summary-row span:last-child {
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .summary-divider {
+            border: none;
+            border-top: 1px solid rgba(12, 44, 85, .2);
+            margin: 20px 0;
+        }
+
+        .summary-total {
+            font-size: 1.08rem;
+            font-weight: 800;
+        }
+
+        .cart-checkout {
+            display: block;
+            width: 100%;
+            margin-top: 24px;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 10px;
+            background: #296374;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .cart-checkout:hover {
+            background: #1d4b59;
+        }
+
+        .cart-checkout:focus-visible,
+        .cart-clear:focus-visible,
+        .cart-item button:focus-visible {
+            outline: 3px solid #629FAD;
+            outline-offset: 3px;
+        }
+
+        .cart-continue {
+            display: inline-block;
+            margin-top: 18px;
+            color: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .cart-empty {
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        .cart-empty h2 {
+            margin-bottom: 10px;
+        }
+
+        .cart-empty p {
+            margin-bottom: 22px;
+            opacity: .75;
+        }
+
+        .cart-notice {
+            margin-bottom: 18px;
+            font-size: .9rem;
+            line-height: 1.5;
+        }
+
+        .cart-notice[hidden],
+        .cart-content[hidden],
+        .cart-empty[hidden] {
+            display: none;
+        }
+
+        @media (max-width: 760px) {
+            .cart-page {
+                margin-top: 28px;
+            }
+
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-summary {
+                position: static;
+            }
+
+            .cart-panel,
+            .cart-summary {
+                padding: 18px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .cart-item {
+                grid-template-columns: 78px minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            .cart-item__image {
+                width: 78px;
+                height: 90px;
+            }
+
+            .cart-item__bottom {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .cart-panel__header {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="navbar__container">
+            <a href="index.html" class="navbar__brand" aria-label="Pasar Gaib - Beranda">
+                <img src="asset/logo.jpeg" alt="Logo Pasar Gaib" width="40" height="40">
+                <span>Pasar Gaib</span>
+            </a>
+
+            <nav class="navbar__links" aria-label="Navigasi utama">
+                <a href="index.html" class="navbar__link">Beranda</a>
+                <a href="products.html" class="navbar__link">Katalog</a>
+                <a href="index.html#about" class="navbar__link">Tentang</a>
+            </nav>
+
+            <div class="navbar__actions">
+                <a href="cart.html" class="navbar__cart" aria-label="Keranjang belanja">
+                    <svg width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="1.8"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="navbar__cart-badge">0</span>
+                </a>
+
+                <button class="navbar__hamburger" type="button"
+                        aria-label="Buka menu" aria-expanded="false"
+                        aria-controls="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="navbar__mobile-menu" id="mobile-menu"
+             aria-label="Navigasi seluler">
+            <a href="index.html" class="navbar__mobile-link">Beranda</a>
+            <a href="products.html" class="navbar__mobile-link">Katalog</a>
+            <a href="index.html#about" class="navbar__mobile-link">Tentang</a>
+            <a href="cart.html" class="navbar__mobile-link navbar__mobile-cart">
+                Keranjang (<span class="navbar__cart-badge">0</span>)
+            </a>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <div class="cart-heading">
+            <h1>Keranjang Belanja</h1>
+            <p>Periksa kembali barang pilihanmu sebelum melanjutkan.</p>
+        </div>
+
+        <p id="cart-notice" class="cart-notice" role="status" hidden></p>
+
+        <section id="cart-empty" class="cart-panel cart-empty" hidden>
+            <h2>Keranjangmu masih kosong</h2>
+            <p>Belum ada benda pilihan yang masuk ke keranjang.</p>
+            <a href="products.html" class="cart-checkout">Jelajahi Katalog</a>
+        </section>
+
+        <div id="cart-content" class="cart-layout cart-content" hidden>
+            <section class="cart-panel" aria-labelledby="cart-items-heading">
+                <div class="cart-panel__header">
+                    <h2 id="cart-items-heading">
+                        Produk Pilihan (<span id="cart-item-count">0</span>)
+                    </h2>
+                    <button type="button" id="clear-cart" class="cart-clear">
+                        Kosongkan
+                    </button>
+                </div>
+
+                <div id="cart-items" class="cart-items"></div>
+            </section>
+
+            <aside class="cart-summary" aria-labelledby="summary-heading">
+                <h2 id="summary-heading">Ringkasan Belanja</h2>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">Rp0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Estimasi ongkir</span>
+                    <span id="cart-shipping">Rp0</span>
+                </div>
+
+                <hr class="summary-divider">
+
+                <div class="summary-row summary-total">
+                    <span>Total estimasi</span>
+                    <span id="cart-total">Rp0</span>
+                </div>
+
+                <p style="font-size:.8rem;line-height:1.5;opacity:.75;">
+                    Ongkir ini masih berupa estimasi dan dapat berubah saat checkout.
+                </p>
+
+                <a href="checkout.html" id="checkout-button" class="cart-checkout">
+                    Lanjut ke Checkout
+                </a>
+
+                <a href="products.html" class="cart-continue">
+                    Lanjut belanja
+                </a>
+            </aside>
+        </div>
+    </main>
+
+    <script type="module" src="assets/js/cart-page.js"></script>
+</body>
+</html>

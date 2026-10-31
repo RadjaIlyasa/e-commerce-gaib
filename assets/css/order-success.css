@@ -1,0 +1,289 @@
+
+[hidden] {
+    display: none !important;
+}
+
+.success-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+#order-content {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.success-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.success-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #245c37;
+    color: #fff;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.success-label {
+    color: #c49a51;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.success-header h1 {
+    margin: 10px 0;
+    color: #f1e5c9;
+    font-size: 30px;
+}
+
+.success-header > p:last-child {
+    color: #c4b89f;
+    line-height: 1.6;
+}
+
+.receipt-card {
+    padding: 35px;
+    background: #f4ead4;
+    color: #352719;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.receipt-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: left;
+}
+
+.receipt-heading img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.receipt-heading h2 {
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.receipt-heading p {
+    margin: 5px 0 0;
+    color: #806b4b;
+}
+
+.receipt-divider {
+    border-top: 1px dashed #b7a68a;
+    margin: 25px 0;
+}
+
+.order-meta,
+.customer-info,
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.order-meta > div,
+.customer-info > p,
+.payment-info > p,
+.receipt-total > p {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 0;
+}
+
+.order-meta span,
+.customer-info span,
+.payment-info span,
+.receipt-total span {
+    color: #806b4b;
+}
+
+.order-meta strong,
+.customer-info strong,
+.payment-info strong {
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.receipt-card h3 {
+    margin: 0 0 18px;
+    font-size: 16px;
+}
+
+.order-products {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.order-product {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.order-product img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.order-product-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.order-product-info h4 {
+    margin: 0 0 5px;
+    overflow-wrap: anywhere;
+}
+
+.order-product-info p {
+    margin: 0;
+    color: #806b4b;
+    font-size: 13px;
+}
+
+.order-product > strong {
+    white-space: nowrap;
+}
+
+.receipt-total {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.grand-total {
+    padding-top: 15px;
+    border-top: 1px solid #b7a68a;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.grand-total strong {
+    color: #245c37;
+}
+
+.receipt-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #806b4b;
+}
+
+.receipt-footer p {
+    font-weight: bold;
+}
+
+.receipt-footer span {
+    font-size: 12px;
+}
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-home,
+.btn-catalog {
+    padding: 13px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn-home {
+    background: #c49a51;
+    color: #24190e;
+}
+
+.btn-catalog {
+    border: 1px solid #c49a51;
+    color: #f1e5c9;
+}
+
+.loading-state,
+.error-state {
+    max-width: 500px;
+    margin: 100px auto;
+    text-align: center;
+    color: #f1e5c9;
+}
+
+.error-state {
+    padding: 25px;
+    background: #572c26;
+    border-radius: 8px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 15px;
+    border: 4px solid #8a7656;
+    border-top-color: #c49a51;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .success-page {
+        padding: 35px 12px;
+    }
+
+    .receipt-card {
+        padding: 22px 16px;
+    }
+
+    .success-header h1 {
+        font-size: 24px;
+    }
+
+    .order-meta > div,
+    .customer-info > p,
+    .payment-info > p {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .order-meta strong,
+    .customer-info strong,
+    .payment-info strong {
+        text-align: left;
+    }
+
+    .order-product {
+        flex-wrap: wrap;
+    }
+
+    .success-actions {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Transfer - Pasar Gaib</title>
+
+    <link rel="icon" href="asset/logo.jpeg">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
+</head>
+<body>
+
+    <header class="payment-header">
+        <a href="index.html" class="payment-logo">
+            <img src="asset/logo.jpeg" alt="Pasar Gaib">
+            <span>Pasar Gaib</span>
+        </a>
+    </header>
+
+    <main class="payment-container">
+
+        <section id="payment-loading">
+            <h2>Menyiapkan Pembayaran...</h2>
+            <p>Mohon tunggu sebentar.</p>
+        </section>
+
+        <section id="payment-content" hidden>
+
+            <div class="payment-heading">
+                <h1>Pembayaran Transfer Bank</h1>
+                <p>Silakan selesaikan pembayaran sebelum batas waktu berakhir.</p>
+            </div>
+
+            <div class="payment-status">
+                <span class="status-indicator"></span>
+                <strong>Menunggu Pembayaran</strong>
+            </div>
+
+            <section class="payment-card">
+                <h2>Informasi Rekening Tujuan</h2>
+                <p class="payment-description">
+                    Silakan transfer sesuai nominal pembayaran ke rekening demo berikut.
+                </p>
+
+                <div class="bank-information">
+                    <div>
+                        <span>Bank</span>
+                        <strong>Bank Pasar Gaib</strong>
+                    </div>
+
+                    <div>
+                        <span>Nama Pemilik</span>
+                        <strong>PT Pasar Gaib Nusantara</strong>
+                    </div>
+
+                    <div>
+                        <span>Nomor Rekening</span>
+                        <div class="account-number">
+                            <strong id="bank-account">8880202610310001</strong>
+                            <button type="button" id="copy-account">
+                                Salin
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <p id="copy-message" hidden></p>
+            </section>
+
+            <section class="payment-card">
+                <h2>Batas Waktu Pembayaran</h2>
+                <p>Selesaikan pembayaran sebelum waktu berikut berakhir.</p>
+
+                <div id="payment-countdown" class="payment-countdown">
+                    15:00
+                </div>
+
+                <p id="payment-message" hidden></p>
+            </section>
+
+            <section class="payment-card">
+                <h2>Detail Pesanan</h2>
+
+                <div class="payment-detail-row">
+                    <span>Nomor Pesanan</span>
+                    <strong id="payment-order-code">-</strong>
+                </div>
+
+                <div class="payment-detail-row">
+                    <span>Metode Pembayaran</span>
+                    <strong>Transfer Bank Demo</strong>
+                </div>
+
+                <div class="payment-detail-row">
+                    <span>Total Pembayaran</span>
+                    <strong id="payment-total">-</strong>
+                </div>
+            </section>
+
+            <button type="button" id="payment-confirm" class="payment-confirm-button">
+                Simulasikan Pembayaran Berhasil
+            </button>
+
+            <p class="payment-disclaimer">
+                Pembayaran ini merupakan simulasi untuk keperluan demonstrasi.
+                Tidak ada transaksi atau pemindahan uang sungguhan.
+            </p>
+
+        </section>
+
+        <section id="payment-error" hidden>
+            <h2 id="payment-error-title">Pembayaran Tidak Tersedia</h2>
+            <p id="payment-error-message"></p>
+            <a href="index.html">Kembali ke Beranda</a>
+        </section>
+
+        <section id="payment-success" hidden>
+            <h2>Pembayaran Berhasil!</h2>
+            <p>Simulasi pembayaran berhasil dikonfirmasi.</p>
+            <p id="payment-success-code"></p>
+            <a href="order-success.html">Lihat Halaman Pesanan</a>
+        </section>
+
+    </main>
+
+    <script type="module" src="assets/js/transfer.js"></script>
+
+</body>
+</html>

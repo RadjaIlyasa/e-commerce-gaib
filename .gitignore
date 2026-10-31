@@ -1,0 +1,16 @@
+# Database credentials
+/config/database.php
+.env
+.env.*
+
+# Dependencies
+/node_modules/
+/vendor/
+
+# Editor
+/.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasar Gaib — Temukan yang Tak Seharusnya Ditemukan</title>
+  <meta name="description" content="Toko artefak mistis terinspirasi folklor Indonesia. Keris pusaka, jenglot, jimat, batu bertuah, dan koleksi langka Nusantara." />
+  <meta name="theme-color" content="#0A0A0B" />
+
+  <!-- Preconnect font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+
+  <link rel="icon" type="image/jpeg" href="asset/logo.jpeg" />
+</head>
+<body>
+
+<!-- ── Skip Link ──────────────────────────────────────────── -->
+<a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════════════════════ -->
+<header>
+  <nav class="navbar" role="navigation" aria-label="Navigasi utama">
+    <div class="container navbar__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="navbar__logo" aria-label="Pasar Gaib — Beranda">
+        <img src="asset/logo.jpeg" alt="Logo Pasar Gaib" class="navbar__logo-img" width="38" height="38" />
+        <div class="navbar__logo-text">
+          <span class="navbar__logo-name">Pasar Gaib</span>
+          <span class="navbar__logo-sub">Artefak Mistis Nusantara</span>
+        </div>
+      </a>
+
+      <!-- Menu Desktop -->
+      <ul class="navbar__menu" role="list">
+        <li><a class="navbar__link active" href="index.html">Beranda</a></li>
+        <li><a class="navbar__link" href="products.html">Katalog</a></li>
+        <li><a class="navbar__link" href="#tentang">Tentang</a></li>
+      </ul>
+
+      <!-- Cart desktop -->
+      <a href="cart.html" class="navbar__cart navbar__cart--desktop" aria-label="Keranjang belanja">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"/>
+        </svg>
+        Keranjang
+        <span class="navbar__cart-badge" aria-label="jumlah item">0</span>
+      </a>
+
+      <!-- Hamburger Mobile -->
+      <button
+        class="navbar__hamburger"
+        aria-label="Buka menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+        <span class="navbar__hamburger-line"></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <nav class="navbar__mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+    <a class="navbar__mobile-link active" href="index.html">Beranda</a>
+    <a class="navbar__mobile-link" href="products.html">Katalog</a>
+    <a class="navbar__mobile-link" href="#tentang">Tentang</a>
+    <a class="navbar__mobile-cart" href="cart.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 002 1.58h9.78a2 2 0 001.95-1.57l1.65-7.43H5.12"/>
+      </svg>
+      Keranjang
+      <span class="navbar__cart-badge">0</span>
+    </a>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     MAIN
+═══════════════════════════════════════════════════════════ -->
+<main id="main-content" class="page-main page-main--hero">
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Selamat datang di Pasar Gaib">
+
+    <!-- Background -->
+    <div class="hero__bg" aria-hidden="true">
+      <img
+        class="hero__bg-img"
+        src="asset/background.jpeg"
+        alt=""
+        fetchpriority="high"
+        decoding="sync"
+        width="1920"
+        height="1080"
+      />
+    </div>
+
+    <!-- Konten hero — teks tengah -->
+    <div class="container" style="position:relative;z-index:1;width:100%;">
+      <div class="hero__content">
+
+        <p class="hero__eyebrow">Folklor Indonesia &middot; Artefak Koleksi</p>
+
+        <h1 class="hero__title">
+          Temukan yang<br>
+          <em>Tak Seharusnya</em><br>
+          Ditemukan.
+        </h1>
+
+        <p class="hero__subtitle">
+          Sebuah pasar malam artefak mistis — keris pusaka, jimat bertuah,
+          dan koleksi langka dari penjuru kepulauan, dipilih satu per satu
+          dari tangan para pengrajin Nusantara.
+        </p>
+
+        <div class="hero__actions">
+          <a href="products.html" class="btn btn--primary btn--lg">
+            Masuki Koleksi
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#tentang" class="btn btn--secondary btn--lg">
+            Kisah Pasar Gaib
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <dl class="hero__stats">
+          <div class="hero__stat">
+            <dt>100%</dt>
+            <dd>Diperiksa Manual</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Warisan</dt>
+            <dd>Nusantara</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>38</dt>
+            <dd>Provinsi Asal</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>∞</dt>
+            <dd>Misteri</dd>
+          </div>
+        </dl>
+
+        <!-- Trust line -->
+        <p class="hero__trust">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 01-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 011-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 011.52 0C14.51 3.81 17 5 19 5a1 1 0 011 1z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          Artefak dekoratif — tanpa klaim supranatural
+        </p>
+
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero__scroll" aria-hidden="true">
+      <span>Gulir</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── KEUNGGULAN ─────────────────────────────────────────── -->
+  <section class="section--sm" aria-label="Keunggulan Pasar Gaib">
+    <div class="container">
+      <div class="features-grid" data-reveal>
+
+        <div class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9.937 15.5A2 2 0 008.5 14.063l-6.135-1.582a.5.5 0 010-.962L8.5 9.936A2 2 0 009.937 8.5l1.582-6.135a.5.5 0 01.963 0L14.063 8.5A2 2 0 0115.5 9.937l6.135 1.581a.5.5 0 010 .964L15.5 14.063a2 2 0 00-1.437 1.437l-1.582 6.135a.5.5 0 01-.963 0z"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Koleksi Unik</h3>
+          <p class="feature-card__desc">Artefak terbatas yang tidak akan ditemukan di toko biasa.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Asal Terverifikasi</h3>
+          <p class="feature-card__desc">Setiap benda dilengkapi dokumentasi asal-usul dan pengrajin.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Warisan Nusantara</h3>
+          <p class="feature-card__desc">Motif, material, dan cerita dari seluruh kepulauan Indonesia.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">Pengiriman Nusantara</h3>
+          <p class="feature-card__desc">Dikemas aman, dikirim ke seluruh wilayah Indonesia.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUK UNGGULAN ────────────────────────────────────── -->
+  <section class="section" aria-label="Produk unggulan">
+    <div class="container">
+
+      <div class="section-header section-header--split" data-reveal>
+        <div>
+          <span class="section-eyebrow">Pilihan Terkurasi</span>
+          <h2 class="section-title">Relik <em>Unggulan</em></h2>
+          <p class="section-desc">
+            Benda-benda istimewa yang dipilih dari tangan para penjaga pusaka Nusantara.
+          </p>
+        </div>
+        <a href="products.html" class="section-link">
+          Lihat semua koleksi
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Grid diisi app.js -->
+      <div class="product-grid" id="featured-grid" role="list" aria-label="Produk unggulan">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ORNAMEN ────────────────────────────────────────────── -->
+  <div class="container" aria-hidden="true">
+    <div class="ornamen-divider">
+      <span class="ornamen-divider__symbol">✦ ✦ ✦</span>
+    </div>
+  </div>
+
+  <!-- ── KATEGORI — Bento Grid ──────────────────────────────── -->
+  <section class="section" aria-label="Jelajahi kategori">
+    <div class="container">
+
+      <div class="section-header section-header--split" data-reveal>
+        <div>
+          <span class="section-eyebrow">Penjuru Pasar</span>
+          <h2 class="section-title">Enam Lorong <em>Tersembunyi</em></h2>
+        </div>
+        <a href="products.html" class="section-link">
+          Lihat katalog
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Bento grid diisi app.js -->
+      <div class="categories-bento" id="categories-grid" role="list" aria-label="Kategori produk">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ORNAMEN ────────────────────────────────────────────── -->
+  <div class="container" aria-hidden="true">
+    <div class="ornamen-divider">
+      <span class="ornamen-divider__symbol">✦ ✦ ✦</span>
+    </div>
+  </div>
+
+  <!-- ── TENTANG / CERITA ───────────────────────────────────── -->
+  <section class="about-section" id="tentang" aria-label="Kisah Pasar Gaib">
+    <div class="container">
+      <div class="about-section__inner">
+
+        <!-- Teks kiri -->
+        <div class="about-section__text" data-reveal>
+
+          <div>
+            <span class="section-eyebrow">Kisah Kami</span>
+            <h2 class="section-title" style="text-align:left;margin-top:var(--space-3);">
+              Warisan Gaib <em>Nusantara</em>
+            </h2>
+            <div class="divider-gold divider-gold--left"></div>
+          </div>
+
+          <blockquote class="about-section__quote">
+            "Ada yang dijual di pasar biasa. Ada yang hanya bisa ditemukan
+            jika pasar itu menemukanmu lebih dulu."
+          </blockquote>
+
+          <p class="about-section__body">
+            Pasar Gaib berdiri dari keyakinan bahwa setiap benda mistis membawa energi,
+            cerita, dan tanggung jawab tersendiri. Kami mengumpulkan artefak dari
+            pengrajin, kolektor, dan keturunan penjaga pusaka di seluruh Nusantara —
+            dari lereng Merapi, pesisir Bali, hingga hutan Kalimantan.
+          </p>
+
+          <p class="about-section__body">
+            Setiap produk melewati proses dokumentasi asal-usul dan konsultasi dengan
+            ahli budaya lokal. Benda-benda ini bukan sekadar komoditas — melainkan
+            jembatan menuju warisan leluhur yang hampir terlupakan.
+          </p>
+
+          <!-- Disclaimer akademik -->
+          <div class="academic-note">
+            <p>
+              <strong>Catatan</strong><br>
+              Pasar Gaib adalah proyek fiktif untuk keperluan akademik.
+              Nama produk, cerita, dan artefak merupakan bagian dari konsep kreatif
+              dan tidak dimaksudkan sebagai representasi benda sungguhan.
+            </p>
+          </div>
+
+          <a href="products.html" class="btn btn--primary btn--lg about-section__btn" style="align-self:flex-start;">
+            Mulai Menjelajah
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+
+        </div>
+
+        <!-- Gambar kanan -->
+        <div class="about-section__image-wrap" data-reveal>
+          <img
+            src="asset/background.jpeg"
+            alt="Suasana pasar malam tradisional Jawa, lentera-lentera menerangi lorong antara lapak pedagang"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="750"
+          />
+          <div class="about-section__image-overlay" aria-hidden="true"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+
+    <div class="footer__grid">
+
+      <!-- Brand -->
+      <div>
+        <div class="footer__brand-emblem">
+          <img src="asset/logo.jpeg" alt="Logo Pasar Gaib" class="footer__brand-img" width="38" height="38" />
+          <span class="footer__brand-name">Pasar Gaib</span>
+        </div>
+        <p class="footer__brand-tagline">Temukan yang Tak Seharusnya Ditemukan.</p>
+        <p class="footer__brand-desc">
+          Toko artefak mistis terinspirasi folklor dan tradisi leluhur Nusantara.
+          Setiap benda membawa cerita yang menunggu untuk ditemukan.
+        </p>
+      </div>
+
+      <!-- Navigasi -->
+      <div>
+        <p class="footer__heading">Navigasi</p>
+        <ul class="footer__links" role="list">
+          <li><a class="footer__link" href="index.html">Beranda</a></li>
+          <li><a class="footer__link" href="products.html">Katalog Produk</a></li>
+          <li><a class="footer__link" href="cart.html">Keranjang</a></li>
+          <li><a class="footer__link" href="#tentang">Tentang Kami</a></li>
+        </ul>
+      </div>
+
+      <!-- Kebijakan -->
+      <div>
+        <p class="footer__heading">Kebijakan</p>
+        <ul class="footer__links" role="list">
+          <li><a class="footer__link" href="#">Syarat &amp; Ketentuan</a></li>
+          <li><a class="footer__link" href="#">Kebijakan Privasi</a></li>
+          <li><a class="footer__link" href="#">Pengembalian Barang</a></li>
+          <li><a class="footer__link" href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Kontak -->
+      <div>
+        <p class="footer__heading">Hubungi Kami</p>
+        <address style="font-style:normal;">
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Jl. Pasar Kliwon No. 7,<br>Surakarta, Jawa Tengah</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span>+62 812-3456-7890</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg class="footer__contact-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>salam@pasargaib.id</span>
+          </div>
+        </address>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        &copy; 2026 Pasar Gaib &mdash; Proyek Akademik. Tidak untuk tujuan komersial.
+      </p>
+      <p class="footer__disclaimer">
+        Seluruh nama produk dan artefak bersifat fiktif.<br>
+        Dibuat untuk demonstrasi teknis mata kuliah Pemrograman Web.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ── Scripts ────────────────────────────────────────────── -->
+<script type="module" src="assets/js/app.js"></script>
+
+</body>
+</html>

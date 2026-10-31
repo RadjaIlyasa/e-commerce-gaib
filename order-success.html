@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pesanan Berhasil | Pasar Gaib</title>
+
+    <link rel="icon" href="asset/logo.jpeg">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/order-success.css">
+</head>
+
+<body>
+
+    <main class="success-page">
+
+        <div id="order-loading" class="loading-state">
+            <div class="loading-spinner"></div>
+            <p>Memanggil catatan dari alam gaib...</p>
+        </div>
+
+        <div id="order-error" class="error-state" hidden></div>
+
+        <section id="order-content" hidden>
+
+            <div class="success-header">
+                <div class="success-icon">✓</div>
+
+                <p class="success-label">TRANSAKSI BERHASIL</p>
+
+                <h1>Pesanan Berhasil Dibuat!</h1>
+
+                <p>
+                    Terima kasih telah berbelanja di Pasar Gaib.
+                    Berikut adalah catatan transaksi Anda.
+                </p>
+            </div>
+
+            <div class="receipt-card">
+
+                <div class="receipt-heading">
+                    <img src="asset/logo.jpeg" alt="Logo Pasar Gaib">
+
+                    <div>
+                        <h2>PASAR GAIB</h2>
+                        <p>Struk Pembelian</p>
+                    </div>
+                </div>
+
+                <div class="receipt-divider"></div>
+
+                <div class="order-meta">
+                    <div>
+                        <span>Nomor Pesanan</span>
+                        <strong id="order-code">-</strong>
+                    </div>
+
+                    <div>
+                        <span>Tanggal Pesanan</span>
+                        <strong id="order-date">-</strong>
+                    </div>
+                </div>
+
+                <div class="receipt-divider"></div>
+
+                <h3>Informasi Pembeli</h3>
+
+                <div class="customer-info">
+                    <p><span>Nama</span><strong id="customer-name">-</strong></p>
+                    <p><span>Telepon</span><strong id="customer-phone">-</strong></p>
+                    <p><span>Email</span><strong id="customer-email">-</strong></p>
+                    <p><span>Alamat</span><strong id="customer-address">-</strong></p>
+                </div>
+
+                <div class="receipt-divider"></div>
+
+                <h3>Informasi Pembayaran</h3>
+
+                <div class="payment-info">
+                    <p><span>Metode</span><strong id="payment-method">-</strong></p>
+                    <p><span>Status Pembayaran</span><strong id="payment-status">-</strong></p>
+                    <p><span>Status Pesanan</span><strong id="order-status">-</strong></p>
+                </div>
+
+                <div class="receipt-divider"></div>
+
+                <h3>Rincian Produk</h3>
+
+                <div id="order-products" class="order-products"></div>
+
+                <div class="receipt-divider"></div>
+
+                <div class="receipt-total">
+                    <p>
+                        <span>Subtotal Produk</span>
+                        <strong id="order-subtotal">Rp0</strong>
+                    </p>
+
+                    <p class="grand-total">
+                        <span>Total Pembayaran</span>
+                        <strong id="order-total">Rp0</strong>
+                    </p>
+                </div>
+
+                <div class="receipt-footer">
+                    <p>Terima kasih telah berkunjung.</p>
+                    <span>Semoga transaksi Anda membawa berkah.</span>
+                </div>
+
+            </div>
+
+            <div class="success-actions">
+                <a href="index.html" class="btn-home">Kembali ke Beranda</a>
+                <a href="products.html" class="btn-catalog">Belanja Lagi</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="assets/js/order-success.js"></script>
+
+</body>
+</html>

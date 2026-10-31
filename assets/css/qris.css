@@ -1,0 +1,258 @@
+
+.payment-page {
+    width: min(1000px, 92%);
+    margin: 48px auto 80px;
+}
+
+.payment-heading {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.payment-heading h1 {
+    margin: 10px 0;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.payment-heading p {
+    opacity: .75;
+}
+
+.payment-label {
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #629FAD;
+}
+
+.payment-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(260px, .8fr);
+    align-items: start;
+    gap: 24px;
+}
+
+.payment-panel {
+    padding: 28px;
+    border: 1px solid rgba(98, 159, 173, .35);
+    border-radius: 16px;
+    background: var(--color-surface, #EDEDCE);
+    color: var(--color-ink, #0C2C55);
+}
+
+.payment-panel h2 {
+    margin: 0 0 22px;
+}
+
+.payment-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 24px;
+    font-size: .85rem;
+    font-weight: 700;
+}
+
+.status-indicator {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #d69b24;
+}
+
+.qris-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+.qris-placeholder {
+    display: grid;
+    place-items: center;
+    width: 220px;
+    height: 220px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.qris-pattern {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border: 12px solid #111;
+    color: #111;
+    font-size: 3rem;
+    font-weight: 900;
+    background:
+        repeating-conic-gradient(#111 0% 25%, #fff 0% 50%)
+        0 / 22px 22px;
+}
+
+.qris-container p {
+    font-size: .8rem;
+    opacity: .7;
+}
+
+.payment-countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin: 28px 0;
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(41, 99, 116, .1);
+}
+
+.payment-countdown strong {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+}
+
+.payment-button {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #296374;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.payment-button:hover {
+    background: #1d4b59;
+}
+
+.payment-button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+.payment-disclaimer {
+    margin-top: 16px;
+    font-size: .78rem;
+    line-height: 1.6;
+    text-align: center;
+    opacity: .7;
+}
+
+.payment-summary h2 {
+    margin-bottom: 24px;
+}
+
+.payment-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.payment-detail span,
+.payment-total span {
+    font-size: .85rem;
+    opacity: .7;
+}
+
+.payment-detail strong {
+    overflow-wrap: anywhere;
+}
+
+.payment-summary hr {
+    border: none;
+    border-top: 1px solid rgba(12, 44, 85, .2);
+    margin: 22px 0;
+}
+
+.payment-total {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.payment-total strong {
+    font-size: 1.6rem;
+}
+
+.payment-message {
+    padding: 12px;
+    margin: 16px 0;
+    border-radius: 8px;
+    background: #f8dddd;
+    color: #8b2525;
+    font-size: .9rem;
+}
+
+.payment-result {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.payment-result h2 {
+    margin-bottom: 12px;
+}
+
+.payment-result p {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.payment-link {
+    margin-top: 24px;
+}
+
+.result-icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #dff3df;
+    color: #205c2a;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.payment-page [hidden] {
+    display: none !important;
+}
+
+.qris-image {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+@media (max-width: 760px) {
+    .payment-page {
+        margin-top: 28px;
+    }
+
+    .payment-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-panel {
+        padding: 20px;
+    }
+
+    .qris-placeholder {
+        width: 190px;
+        height: 190px;
+    }
+}

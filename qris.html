@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pembayaran QRIS demo Pasar Gaib.">
+    <title>Pembayaran QRIS | Pasar Gaib</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="navbar__container">
+            <a href="index.html" class="navbar__brand">
+                <img src="asset/logo.jpeg" alt="Logo Pasar Gaib"
+                     width="40" height="40">
+                <span>Pasar Gaib</span>
+            </a>
+
+            <a href="index.html" class="navbar__link">
+                Kembali ke Beranda
+            </a>
+        </div>
+    </header>
+
+    <main class="payment-page">
+        <div class="payment-heading">
+            <span class="payment-label">PEMBAYARAN DIGITAL</span>
+            <h1>Selesaikan Pembayaran</h1>
+            <p>Silakan selesaikan pembayaran sebelum batas waktu berakhir.</p>
+        </div>
+
+        <section id="payment-loading" class="payment-panel">
+            <p>Memuat informasi pembayaran...</p>
+        </section>
+
+        <section id="payment-content" class="payment-layout" hidden>
+            <div class="payment-panel payment-main">
+                <div class="payment-status">
+                    <span class="status-indicator"></span>
+                    <span>Menunggu Pembayaran</span>
+                </div>
+
+                <h2>Scan QRIS di bawah ini</h2>
+
+                <div class="qris-container">
+                    <div class="qris-placeholder">
+                        <img
+                            src="asset/qris.jpeg"
+                            alt="QRIS Demo Pasar Gaib"
+                            class="qris-image"
+                            >
+                        </div>
+                    </div>
+
+                    <strong>QRIS Pasar Gaib</strong>
+                    <p>QR ini hanya digunakan untuk simulasi tugas.</p>
+                </div>
+
+                <div class="payment-countdown">
+                    <span>Sisa waktu pembayaran</span>
+                    <strong id="payment-countdown">15:00</strong>
+                </div>
+
+                <p id="payment-message" class="payment-message" hidden></p>
+
+                <button
+                    type="button"
+                    id="payment-confirm"
+                    class="payment-button"
+                >
+                    Simulasikan Pembayaran Berhasil
+                </button>
+
+                <p class="payment-disclaimer">
+                    Ini merupakan simulasi pembayaran. Tidak ada transaksi
+                    atau pemindahan uang sungguhan.
+                </p>
+            </div>
+
+            <aside class="payment-panel payment-summary">
+                <h2>Detail Pesanan</h2>
+
+                <div class="payment-detail">
+                    <span>Nomor Pesanan</span>
+                    <strong id="payment-order-code">-</strong>
+                </div>
+
+                <div class="payment-detail">
+                    <span>Metode Pembayaran</span>
+                    <strong>QRIS Demo</strong>
+                </div>
+
+                <hr>
+
+                <div class="payment-total">
+                    <span>Total Pembayaran</span>
+                    <strong id="payment-total">Memuat...</strong>
+                </div>
+            </aside>
+        </section>
+
+        <section id="payment-error" class="payment-panel payment-result" hidden>
+            <h2 id="payment-error-title">Pembayaran tidak tersedia</h2>
+            <p id="payment-error-message"></p>
+            <a href="products.html" class="payment-button payment-link">
+                Kembali ke Katalog
+            </a>
+        </section>
+
+        <section id="payment-success" class="payment-panel payment-result" hidden>
+            <div class="result-icon">✓</div>
+            <h2>Pembayaran Berhasil!</h2>
+            <p>Pembayaran demo kamu sudah berhasil dikonfirmasi.</p>
+            <p id="payment-success-code"></p>
+            <a href="products.html" class="payment-button payment-link">
+                Kembali ke Katalog
+            </a>
+        </section>
+    </main>
+
+    <script type="module" src="assets/js/qris.js"></script>
+</body>
+</html>
