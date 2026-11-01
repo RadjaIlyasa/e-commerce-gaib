@@ -5,7 +5,7 @@ require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/../config/database.php';
 
 if (!empty($_SESSION['admin_id'])) {
-    header('Location: /toko-dukun/admin/dashboard.php');
+    header('Location: ' . APP_BASE_PATH . '/admin/index.php');
     exit;
 }
 
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['admin_username'] = $admin['username'];
             $_SESSION['admin_name'] = $admin['nama_admin'];
 
-            header('Location: /toko-dukun/admin/dashboard.php');
+            header('Location: ' . APP_BASE_PATH . '/admin/index.php');
             exit;
         }
 

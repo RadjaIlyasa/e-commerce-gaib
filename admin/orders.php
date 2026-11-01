@@ -291,12 +291,12 @@ function statusClass(string $status): string
 <body>
     <main class="layout">
         <header class="topbar">
-            <a class="brand" href="/toko-dukun/admin/dashboard.php">
+            <a class="brand" href="<?= APP_BASE_PATH ?>/admin/index.php">
                 PASAR GAIB
             </a>
             <a
                 class="back-link"
-                href="/toko-dukun/admin/dashboard.php"
+                href="<?= APP_BASE_PATH ?>/admin/index.php"
             >
                 ← Kembali ke Dashboard
             </a>
@@ -331,7 +331,7 @@ function statusClass(string $status): string
 
                 <button type="submit">Cari Pesanan</button>
 
-                <a class="reset" href="orders.php">Reset</a>
+                <a class="reset" href="<?= APP_BASE_PATH ?>/admin/orders.php">Reset</a>
             </form>
 
             <p class="result-count">
@@ -392,7 +392,7 @@ function statusClass(string $status): string
                                     </td>
                                     <td>
                                         <a
-                                        href="/toko-dukun/admin/order-detail.php?id=<?= (int) $order['id_pesanan'] ?>"
+                                        href="<?= APP_BASE_PATH ?>/admin/order-detail.php?id=<?= (int) $order['id_pesanan'] ?>"
                                         style="color: #c4b5fd; font-weight: 700;"
                                         >
                                         Lihat Detail →

@@ -1,7 +1,9 @@
 
-import { formatRupiah } from './api.js';
-
-const API_URL = '/toko-dukun/api';
+import {
+    API_BASE_URL,
+    ASSET_BASE_URL,
+    formatRupiah
+} from './api.js';
 
 const elements = {
     loading: document.getElementById('order-loading'),
@@ -50,8 +52,8 @@ function renderProducts(products) {
 
         const image = document.createElement('img');
         image.src = product.gambar
-            ? `/toko-dukun/asset/${product.gambar}`
-            : '/toko-dukun/asset/background.jpeg';
+            ? `${ASSET_BASE_URL}/${product.gambar}`
+            : `${ASSET_BASE_URL}/background.jpeg`;
         image.alt = product.nama_produk;
 
         const info = document.createElement('div');
@@ -81,7 +83,7 @@ async function loadOrder() {
 
     try {
         const response = await fetch(
-            `${API_URL}/order-detail.php?kode=${encodeURIComponent(orderCode)}`,
+            `${API_BASE_URL}/order-detail.php?kode=${encodeURIComponent(orderCode)}`,
             {
                 headers: {
                     Accept: 'application/json',

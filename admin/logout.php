@@ -25,5 +25,5 @@ if (ini_get('session.use_cookies')) {
 
 session_destroy();
 
-header('Location: /toko-dukun/admin/login.php');
+header('Location:' . APP_BASE_PATH . '/admin/login.php');
 exit;

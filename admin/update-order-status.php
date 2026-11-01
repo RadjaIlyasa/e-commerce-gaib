@@ -9,7 +9,7 @@ require_once __DIR__ . '/../config/database.php';
 function redirectToDetail(int $id, string $message): never
 {
     header(
-        'Location: /toko-dukun/admin/order-detail.php?id='
+        'Location: ' . APP_BASE_PATH . '/admin/order-detail.php?id='
         . $id . '&' . $message
     );
     exit;
@@ -88,11 +88,11 @@ try {
         $newStatus === 'dibatalkan' &&
         in_array($order['metode_pembayaran'], ['QRIS', 'TRANSFER'], true)
     ) {
-    $pdo->rollBack();
+        $pdo->rollBack();
 
-    redirectToDetail(
-        $orderId,
-        'error=pembatalan_pembayaran_digital_tidak_diizinkan'
+        redirectToDetail(
+            $orderId,
+            'error=pembatalan_pembayaran_digital_tidak_diizinkan'
         );
     }
 

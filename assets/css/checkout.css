@@ -96,8 +96,7 @@
 
 .checkout-panel__heading h2,
 .checkout-summary h2,
-.checkout-empty h2,
-.checkout-success h2 {
+.checkout-empty h2 {
     margin: 0;
     color: var(--clr-text);
     font-family: var(--font-display);
@@ -447,16 +446,14 @@
     color: var(--clr-accent-light);
 }
 
-.checkout-empty,
-.checkout-success {
+.checkout-empty {
     max-width: 680px;
     margin-inline: auto;
     padding: clamp(var(--space-8), 8vw, var(--space-12)) var(--space-6);
     text-align: center;
 }
 
-.checkout-empty__icon,
-.checkout-success__icon {
+.checkout-empty__icon {
     display: grid;
     width: 64px;
     height: 64px;
@@ -469,8 +466,7 @@
     font-size: var(--text-2xl);
 }
 
-.checkout-empty > p:not(.checkout-panel__eyebrow),
-.checkout-success > p:not(.checkout-panel__eyebrow) {
+.checkout-empty > p:not(.checkout-panel__eyebrow) {
     max-width: 440px;
     margin: var(--space-3) auto var(--space-6);
     color: var(--clr-text-muted);
@@ -480,12 +476,6 @@
 
 .checkout-action {
     min-height: 46px;
-}
-
-.checkout-success__icon {
-    border-color: rgba(61, 139, 77, 0.4);
-    background: rgba(61, 139, 77, 0.15);
-    color: #83c98e;
 }
 
 .checkout-page :is(a, button):focus-visible {

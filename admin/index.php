@@ -289,21 +289,21 @@ $statusLabels = [
 
         <nav class="nav-list">
             <a class="nav-link active"
-               href="/toko-dukun/admin/dashboard.php">
+               href="<?= APP_BASE_PATH ?>/admin/index.php">
                 Dashboard
             </a>
             <a class="nav-link"
-               href="/toko-dukun/admin/orders.php">
+               href="<?= APP_BASE_PATH ?>/admin/orders.php">
                 Pesanan
             </a>
             <a class="nav-link"
-               href="/toko-dukun/admin/products.php">
+               href="<?= APP_BASE_PATH ?>/admin/products.php">
                 Produk
             </a>
         </nav>
 
         <form class="logout"
-              action="/toko-dukun/admin/logout.php"
+              action="<?= APP_BASE_PATH ?>/admin/logout.php"
               method="POST">
             <button type="submit">Logout</button>
         </form>

@@ -344,11 +344,11 @@ function e(string|null $value): string
         </div>
 
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <a class="button" href="dashboard.php">
+            <a class="button" href="<?= APP_BASE_PATH ?>/admin/index.php">
                 Kembali ke Dashboard
             </a>
 
-            <a class="button button-primary" href="product-form.php">
+            <a class="button button-primary" href="<?= APP_BASE_PATH ?>/admin/product-form.php">
                 + Tambah Produk
             </a>
         </div>
@@ -398,7 +398,7 @@ function e(string|null $value): string
                 Cari Produk
             </button>
 
-            <a class="button" href="products.php">
+            <a class="button" href="<?= APP_BASE_PATH ?>/admin/products.php">
                 Reset
             </a>
         </form>
@@ -486,7 +486,7 @@ function e(string|null $value): string
 
                             <td>     
                             <a class="button"
-                             href="product-form.php?id=<?= (int) $product['id_produk'] ?>">
+                             href="<?= APP_BASE_PATH ?>/admin/product-form.php?id=<?= (int) $product['id_produk'] ?>">
                                  Edit
                             </a>
                             </td>

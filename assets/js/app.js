@@ -1,23 +1,11 @@
-/**
- * PASAR GAIB — app.js
- * Logika JavaScript untuk beranda (index.html):
- * - Inisialisasi navbar (scroll state, hamburger, cart badge)
- * - Muat produk unggulan
- * - Muat kategori
- * - Toast notification
- */
-
 import { getFeaturedProducts, getCategories, formatRupiah } from './api.js';
 import { getCartCount, addToCart } from './cart.js';
-
-// ── Navbar ────────────────────────────────────────────────────────────────────
 
 function initNavbar() {
   const navbar     = document.querySelector('.navbar');
   const hamburger  = document.querySelector('.navbar__hamburger');
   const mobileMenu = document.querySelector('.navbar__mobile-menu');
 
-  // Scroll state
   function onScroll() {
     if (window.scrollY > 40) {
       navbar?.classList.add('scrolled');
@@ -28,7 +16,6 @@ function initNavbar() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Hamburger toggle
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
@@ -37,7 +24,6 @@ function initNavbar() {
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Tutup menu saat link diklik
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
@@ -46,7 +32,6 @@ function initNavbar() {
       });
     });
 
-    // Tutup menu saat klik di luar
     document.addEventListener('click', (e) => {
       if (!navbar?.contains(e.target) && !mobileMenu?.contains(e.target)) {
         if (mobileMenu.classList.contains('open')) {
@@ -58,7 +43,6 @@ function initNavbar() {
     });
   }
 
-  // Tandai link aktif
   const currentPath = window.location.pathname;
   document.querySelectorAll('.navbar__link, .navbar__mobile-link').forEach(link => {
     const href = link.getAttribute('href');
@@ -71,8 +55,6 @@ function initNavbar() {
     }
   });
 }
-
-// ── Cart Badge ────────────────────────────────────────────────────────────────
 
 function updateCartBadge() {
   const count   = getCartCount();
@@ -87,8 +69,6 @@ function initCartBadge() {
   updateCartBadge();
   window.addEventListener('cart:updated', updateCartBadge);
 }
-
-// ── Toast ─────────────────────────────────────────────────────────────────────
 
 function showToast(message, type = 'info', duration = 3500) {
   let container = document.querySelector('.toast-container');
@@ -120,10 +100,7 @@ function showToast(message, type = 'info', duration = 3500) {
   toast.addEventListener('click', remove);
 }
 
-// Ekspor showToast agar bisa dipakai halaman lain
 window.showToast = showToast;
-
-// ── Produk Unggulan ───────────────────────────────────────────────────────────
 
 function createProductCard(product) {
   const isHabis    = product.stock === 0;
@@ -180,7 +157,6 @@ function createProductCard(product) {
     </div>
   `;
 
-  // Event handler tombol keranjang
   const cartBtn = card.querySelector('.js-add-to-cart');
   if (cartBtn) {
     cartBtn.addEventListener('click', (e) => {
@@ -205,7 +181,6 @@ async function loadFeaturedProducts() {
   const grid = document.getElementById('featured-grid');
   if (!grid) return;
 
-  // Loading state
   grid.innerHTML = `
     <div class="state-loading" style="grid-column:1/-1">
       <div class="spinner" aria-hidden="true"></div>
@@ -243,8 +218,6 @@ async function loadFeaturedProducts() {
     grid.appendChild(createProductCard(product));
   });
 }
-
-// ── Kategori ─────────────────────────────────────────────────────────────────
 
 function createCategoryCard(cat) {
   const a = document.createElement('a');
@@ -288,8 +261,6 @@ async function loadCategories() {
   });
 }
 
-// ── Scroll Reveal sederhana ───────────────────────────────────────────────────
-
 function initScrollReveal() {
   const elements = document.querySelectorAll('[data-reveal]');
   if (!elements.length) return;
@@ -314,22 +285,8 @@ function initScrollReveal() {
     `;
     observer.observe(el);
   });
-
-  document.addEventListener('revealed-style', () => {
-    document.querySelectorAll('.revealed').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    });
-  });
-
-  // Polyfill minimal jika sudah revealed
-  document.querySelectorAll('.revealed').forEach(el => {
-    el.style.opacity = '1';
-    el.style.transform = 'translateY(0)';
-  });
 }
 
-// IntersectionObserver tidak punya event, handle via MutationObserver kecil
 function watchReveal() {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach(m => {
@@ -347,8 +304,6 @@ function watchReveal() {
     observer.observe(el, { attributes: true });
   });
 }
-
-// ── Inisialisasi ──────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();

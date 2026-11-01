@@ -417,7 +417,7 @@ function e(string|int|null $value): string
             <div class="muted">Lengkapi informasi produk Pasar Gaib.</div>
         </div>
 
-        <a class="button" href="products.php">Kembali</a>
+        <a class="button" href="<?= APP_BASE_PATH ?>/admin/">Kembali</a>
     </header>
 
     <main class="panel">

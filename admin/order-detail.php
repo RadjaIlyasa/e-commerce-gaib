@@ -77,6 +77,21 @@ $stmtItems = $pdo->prepare("
 $stmtItems->execute(['id' => $orderId]);
 $items = $stmtItems->fetchAll();
 
+// Pesan hasil perubahan status yang aman untuk ditampilkan.
+$statusErrorMessages = [
+    'pembatalan_pembayaran_digital_tidak_diizinkan' =>
+        'Pesanan QRIS/TRANSFER belum bisa dibatalkan dari panel admin. '
+        . 'Pembatalan hanya tersedia untuk pesanan COD.',
+    'transisi_tidak_diizinkan' =>
+        'Perubahan status tersebut tidak diizinkan dari status pesanan saat ini.',
+    'status_tidak_valid' =>
+        'Status yang dikirim tidak valid. Muat ulang halaman lalu coba lagi.',
+    'pesanan_tidak_ditemukan' =>
+        'Pesanan tidak ditemukan. Muat ulang halaman lalu periksa kembali.',
+    'gagal_memperbarui' =>
+        'Terjadi kesalahan saat menyimpan status. Coba lagi; jika masih gagal, periksa log server.',
+];
+
 // Hitung subtotal dari detail transaksi yang tersimpan.
 $subtotal = 0;
 
@@ -284,11 +299,11 @@ $shipping = $total - $subtotal;
 <body>
 <main class="container">
     <header class="topbar">
-        <a class="brand" href="/toko-dukun/admin/dashboard.php">
+        <a class="brand" href="<?= APP_BASE_PATH ?>/admin/index.php">
             PASAR GAIB
         </a>
 
-        <a class="back" href="/toko-dukun/admin/orders.php">
+        <a class="back" href="<?= APP_BASE_PATH ?>/admin/orders.php">
             ← Kembali ke Pesanan
         </a>
     </header>
@@ -306,8 +321,11 @@ $shipping = $total - $subtotal;
     </div>
 <?php elseif (isset($_GET['error'])): ?>
     <div class="notice">
-        Status gagal diperbarui.
-        Silakan periksa status pesanan dan coba kembali.
+        <?= e(
+            $statusErrorMessages[
+                is_string($_GET['error']) ? $_GET['error'] : ''
+            ] ?? 'Status gagal diperbarui. Silakan coba kembali.'
+        ) ?>
     </div>
 <?php endif; ?>
 
@@ -378,7 +396,7 @@ $shipping = $total - $subtotal;
                             ))) ?>
                         </span>
                         <form
-    action="/toko-dukun/admin/update-order-status.php"
+    action="<?= APP_BASE_PATH ?>/admin/update-order-status.php"
     method="POST"
     style="margin-top: 18px;"
 >

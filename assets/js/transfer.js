@@ -1,7 +1,5 @@
 
-import { formatRupiah } from './api.js';
-
-const API_URL = '/toko-dukun/api';
+import { API_BASE_URL, formatRupiah } from './api.js';
 
 const elements = {
     loading: document.querySelector('#payment-loading'),
@@ -79,7 +77,7 @@ function showMessage(message) {
 }
 
 async function postJSON(endpoint, data) {
-    const response = await fetch(`${API_URL}/${endpoint}`, {
+    const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
